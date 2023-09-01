@@ -1,7 +1,7 @@
 # Excluir archivos y directorios específicos
 .env
 /node_modules/
-
+/static/node_modules/
 
 # Excluir otros archivos generados o temporales 
 __pycache__/
