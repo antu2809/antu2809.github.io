@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.slick/1.8.1/slick.min.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-KZIz1fPu9AdC4ffErH0uTuEt+YiL34aJMe61Bu1QmRcS5lCz+G0JS5XxH6jHlw51DRmLdDBhPzJ4SdzeXlBYxA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="data-theme" data-theme="light">
+  <header id="page-header" class="theme-change"> 
+      <div class="ribbon">
+       <a target="_blank" href="https://github.com/antu2809" title="Follow on GitHub"><img src="static/img/github_menu.png" alt="GitHub"></a>
+       <a target="_blank" href="https://www.linkedin.com/in/francisco-antu-almonacid-cammarata-543119267/" title="Follow on Linkedin"><img src="static/img/linkedin_menu.png" alt="LinkedIn"></a>
+      </div>
+      
+      <nav>
+        <ul id="nav-menu" class="flex justify-end items-center list-reset m-0">
+         <li><a href="/" class="active">About</a></li>
+         <li><a href="/experience">Portfolio</a></li>
+         <li><a href="/education">Education</a></li>
+         <li><a href="/contact">Contact</a></li>
+        </ul>
+      </nav>
+     <label class="toggle-switch">
+       <input type="checkbox" onclick="switchTheme()">
+       <span class="slider"></span>
+     </label>
+
+     <div class="burger" onclick="toggleMenu()">
+      <div class="burger-i st-1"></div>
+      <div class="burger-i st-2"></div>
+      <div class="burger-i st-3"></div>
+    </div>
+     
+   
+  </header>
+    <main id="">
+        <section class="current">
+            <div>
+                <div class="content pages" id="portfolio">
+                    <section class="centered">
+                        <div class="wrapper">
+                            <header>
+                              <section class="name-title-container">
+                                <h1 class="student-name">{{ name }}</h1>
+                                <h2 class="student-title">COMPUTER ENGINEERING STUDENT, JUNIOR FULL STACK DEVELOPER</h2>                                                                
+                              </section>
+                              <section class="social-media-container">
+                                <div class="section-header">
+                                  <h2>Social media</h2>
+                                </div>
+                                <ul class="social-media">
+                                  <li>
+                                    <a href="https://www.linkedin.com/in/francisco-almonacid-cammarata-543119267/" target="_blank" class="social-link linkedin mobile-link">
+                                      <img src="static/img/linkedin.png" alt="LinkedIn">
+                                      <div class="profile-tooltip">
+                                        <img src="https://media.licdn.com/dms/image/D4D03AQF4XauOvNIZJg/profile-displayphoto-shrink_800_800/0/1687451406282?e=1696464000&v=beta&t=cugtlakTFvYJcgNnlJ-I9jsO8PNY1n-vrlfk_H2gE7k" alt="LinkedIn">
+                                        <p class="tooltip-text">Profile</p>
+                                      </div>
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a href="https://github.com/antu2809" target="_blank" class="social-link github mobile-link">
+                                      <img src="static/img/github.png" alt="GitHub">
+                                      <div class="profile-tooltip">
+                                        <img src="https://avatars.githubusercontent.com/u/102919566?v=4" alt="GitHub">
+                                        <p class="tooltip-text">Repositories</p>
+                                      </div>
+                                    </a>
+                                  </li>
+                                </ul>
+                              </section> 
+                              <section class="student-details-container">
+                                <h2 class="section-title"></h2>
+                                <div class="details-grid">
+                                  <div>
+                                    <h3>Status:</h3>
+                                    <p>{{ status }}</p>
+                                  </div>
+                                  <div>
+                                    <h3>Fields:</h3>
+                                    <p>{{ fields }}</p>
+                                  </div>
+                                  <div>
+                                    <h3>Tech:</h3>
+                                    <p>{{ tech }}</p>
+                                  </div>
+                                  <div>
+                                    <h3>Loves:</h3>
+                                    <p>{{ loves }}</p>
+                                  </div>
+                                </div>
+                              </section>
+                              <section class="special-skills-container container">
+                                <div class="content-text">
+                                  <h2>Special Skills</h2>
+                                  <div class="container">
+                                    <div class="textcard development">
+                                      <div class="inner">
+                                        <div class="card-content front">
+                                          <h2>Backend</h2>
+                                        </div>
+                                        <div class="card-content back">
+                                          <p>Skilled in Object-Oriented Programming (OOP) in multiple languages, including Python and JavaScript, and specializing in the utilization of frameworks such as Django and Flask. Knowledgeable in working with  databases, including MongoDB and SQL.</p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="textcard design">
+                                      <div class="inner">
+                                        <div class="card-content front">
+                                          <h2>Frontend</h2>
+                                        </div>
+                                        <div class="card-content back">
+                                          <p>"Skilled at making websites look both good and representative with JavaScript, CSS, Bootstrap, and Tailwind CSSS."</p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    
+                                  </div>
+                                </div>
+                                
+                              </section>  
+                              <!-- Nueva sección para dispositivos móviles -->
+                              <section class="special-skills-mobile">
+                                <div class="content-text">
+                                  <h2>Special Skills</h2>
+                                  <div class="mobile-card">
+                                    <h3>Backend</h3>
+                                    <p>Skilled in Object-Oriented Programming (OOP) in multiple languages, including Python and JavaScript, and specializing in the utilization of frameworks such as Django and Flask. Knowledgeable in working with  databases, including MongoDB and SQL.</p>
+                                  </div>
+                                  <div class="mobile-card">
+                                    <h3>Frontend</h3>
+                                    <p>Skilled at making websites look both good and representative with JavaScript, CSS, Bootstrap, and Tailwind CSS.</p>
+                                  </div>
+                                </div>
+                             </section>                            
+                              <section class="experience-container container">
+                                <div class="content-text">
+                                  <h2>My Expertise</h2>
+                                  <div class="container">
+                                   <div class="desktop-experience">
+                                    <div class="ohio-accordion-sс accordion">
+                                      {% for experience in experiences %}
+                                      <div class="accordionItem elementor-repeater-item-{{ loop.index }}">
+                                        <div class="accordionItem_title">
+                                          <i class="icon hm hm-code-page"></i>
+                                          <h6>
+                                            <div>
+                                              <span class="position">{{ experience.title }}</span>
+                                              <span class="time">{{ experience.date }}</span>
+                                            </div>
+                                          </h6>
+                                          <div class="accordionItem_control btn-round btn-round-small btn-round-light">
+                                            <i class="ion ion-chevron-down ion-md-add"></i>
+                                          </div>
+                                        </div>
+                                        <div class="accordionItem_content">
+                                          <div class="experience-card">
+                                            <p><strong>Company:</strong> {{ experience.company }}</p>
+                                            <p><strong>Description:</strong> {{ experience.description }}</p>
+                                            <p><strong>Skills:</strong></p>
+                                            <ul>
+                                              {% for skill in experience.skills %}
+                                              <li>{{ skill }}</li>
+                                              {% endfor %}
+                                            </ul>
+                                          </div>
+                                          {% if experience.image_path %}
+                                          <div class="experience-image">
+                                            <img src="{{ url_for('static', filename=experience.image_path) }}" alt="{{ experience.title }} image">
+                                          </div>
+                                          {% endif %}
+                                          {% if experience.gif1_path %}
+                                          <div class="experience-media">
+                                            <img src="{{ url_for('static', filename=experience.gif1_path) }}" alt="GIF 1">
+                                          </div>
+                                          {% endif %}
+                                          {% if experience.gif2_path %}
+                                          <div class="experience-media">
+                                            <img src="{{ url_for('static', filename=experience.gif2_path) }}" alt="GIF 2">
+                                          </div>
+                                          {% endif %}
+                                        </div>
+                                      </div>
+                                      {% endfor %}
+                                    </div>
+                                  </div> 
+                                    <!-- Estructura para dispositivos móviles -->
+                                  <div class="mobile-experience">
+                                    <div class="experience-list">
+                                      {% for experience in experiences %}
+                                      <div class="experience-item">
+                                        <h3>{{ experience.title }}</h3>
+                                        <p class="time">{{ experience.date }}</p>
+                                        <div class="description">{{ experience.description }}</div>
+                                        <!-- Sección para archivos multimedia  -->
+                                        {% if experience.image_path %}
+                                          <div class="experience-image">
+                                            <img src="{{ url_for('static', filename=experience.image_path) }}" alt="{{ experience.title }} image">
+                                          </div>
+                                          {% endif %}
+                                          {% if experience.gif1_path %}
+                                          <div class="experience-media">
+                                            <img src="{{ url_for('static', filename=experience.gif1_path) }}" alt="GIF 1">
+                                          </div>
+                                          {% endif %}
+                                          {% if experience.gif2_path %}
+                                          <div class="experience-media">
+                                            <img src="{{ url_for('static', filename=experience.gif2_path) }}" alt="GIF 2">
+                                          </div>
+                                          {% endif %}
+                                      </div>
+                                      {% endfor %}
+                                     </div>
+                                   </div>
+                                  </div>
+                                </div>
+                              </section>                              
+                              <section class="education-container">
+                                <div class="section-header">
+                                  <h2>Education</h2>
+                                </div>
+                                <div class="education-carousel">
+                                  <div class="education-item animate__carousel-item">
+                                    <div class="education-header">
+                                      <h3>2012 - 2018</h3>
+                                      <h4>Technical degree in agricultural production corresponding to completed secondary education</h4>
+                                    </div>
+                                    <div class="education-details">
+                                      <h5>Secondary School of Technical and Professional Education No. 733 "Benito Owen"</h5>
+                                      <p>Gaiman, Chubut, Argentina</p>
+                                    </div>
+                                  </div>
+                                  <div class="education-item animate__carousel-item">
+                                    <div class="education-header">
+                                      <h3>July 2017</h3>
+                                      <h4>English</h4>
+                                    </div>
+                                    <div class="education-details">
+                                      <h5>Gateway School of English</h5>
+                                      <p>La Valeta, Malta</p>
+                                    </div>
+                                  </div>
+                                  <div class="education-item animate__carousel-item">
+                                    <div class="education-header">
+                                      <h3>2019 / Present</h3>
+                                      <h4>Computer Engineering</h4>
+                                    </div>
+                                    <div class="education-details">
+                                      <h5>UNLP, La Plata</h5>
+                                      <p>La Plata, Buenos Aires, Argentina</p>
+                                    </div>
+                                  </div>
+                                  <div class="education-item animate__carousel-item">
+                                    <div class="education-header">
+                                      <h3>2023</h3>
+                                      <h4>Python</h4>
+                                    </div>
+                                    <div class="education-details">
+                                      <h5>Coderhouse</h5>
+                                      <p>Online</p>
+                                    </div>
+                                  </div>
+                                  
+                                </div>
+                              </section>                                                                                                                                                                                                                                                                                                                       
+                              <section class="contact-container container">
+                                  <div class="content-text">
+                                      <h2>Contact</h2>
+                                      <div class="container">
+                                          <form class="contact-form" method="POST" action="/">
+                                              {{ form.csrf_token }}
+                                              <div>
+                                                  <label class="contact-label" for="name">Name:</label>
+                                                  {{ form.name(size=20) }}
+                                                  {% for error in form.name.errors %}
+                                                      <span class="contact-error">{{ error }}</span>
+                                                  {% endfor %}
+                                              </div>
+                                              <div>
+                                                  <label class="contact-label" for="email">Email:</label>
+                                                  {{ form.email(size=30) }}
+                                                  {% for error in form.email.errors %}
+                                                      <span class="contact-error">{{ error }}</span>
+                                                  {% endfor %}
+                                              </div>
+                                              <div>
+                                                  <label class="contact-label" for="message">Message:</label>
+                                                  {{ form.message(rows=4, cols=30) }}
+                                                  {% for error in form.message.errors %}
+                                                      <span class="contact-error">{{ error }}</span>
+                                                  {% endfor %}
+                                              </div>
+                                              <div>
+                                                  {{ form.submit }}
+                                              </div>
+                                          </form>
+                                      </div>
+                                  </div>
+                              </section>
+                            </header>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
