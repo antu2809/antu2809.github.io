@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for
+from flask import Flask, render_template, redirect, url_for, request
 from flask_wtf import FlaskForm
 from wtforms import StringField, TextAreaField, SubmitField
 from wtforms.validators import DataRequired, Email
@@ -118,7 +118,7 @@ def index():
     form = ContactForm()
 
     if form.validate_on_submit():
-        msg = Message('Nuevo mensaje de contacto', sender='tu_correo@gmail.com', recipients=['antualmonacid@gmail.com'])
+        msg = Message('Nuevo mensaje de contacto', sender=form.email.data, recipients=['antualmonacid@gmail.com'])
         msg.body = f"Nombre: {form.name.data}\nEmail: {form.email.data}\nMensaje: {form.message.data}"
         mail.send(msg)
         return redirect(url_for('index'))
@@ -197,7 +197,7 @@ def contact():
     if form.validate_on_submit():
         # Envío de correo electrónico
         msg = Message('Nuevo mensaje de contacto',  # Asunto del correo
-                      sender='tu_correo@gmail.com',  # Cambia a tu dirección de correo
+                      sender=form.email.data, # Correo elecctronico del remitente
                       recipients=['antualmonacid@gmail.com'])  # Tu dirección de correo destinatario
         msg.body = f"Nombre: {form.name.data}\nEmail: {form.email.data}\nMensaje: {form.message.data}"
         mail.send(msg)
