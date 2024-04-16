@@ -1,0 +1,15 @@
+{% extends "base2.html" %}
+
+{% block content %}
+     <main id="project-details" class="flex flex-col items-center">
+        <h1>{{ project.title }}</h1>
+        <a href={{ project.website }}>Visit website</a>
+        <a href={{ project.repository }}>View code</a>
+        <p>{{ project.description_part1 }}</p>
+        <img src="{{ url_for('static', filename=project.image1_path) }}" alt="Imagen 1" class="w-full h-auto">
+        <p>{{ project.description_part2 }}</p>
+        <img src="{{ url_for('static', filename=project.image2_path) }}" alt="Imagen 2" class="w-full h-auto">
+        <p>{{ project.description_part3 }}</p>
+        <img src="{{ url_for('static', filename=project.image3_path) }}" alt="Imagen 3" class="w-full h-auto">
+    </main>
+{% endblock %}

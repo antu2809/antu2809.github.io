@@ -1,130 +1,21 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>My Expertise</title>
-    <style>
-      h2 {
-          margin-top: 120px;
-      }
-  </style>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/jquery.slick/1.8.1/slick.min.js"></script>
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-KZIz1fPu9AdC4ffErH0uTuEt+YiL34aJMe61Bu1QmRcS5lCz+G0JS5XxH6jHlw51DRmLdDBhPzJ4SdzeXlBYxA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-<body class="data-theme" data-theme="light">
-  <header id="page-header" class="theme-change"> 
-    <div class="ribbon">
-     <a target="_blank" href="https://github.com/antu2809" title="Follow on GitHub"><img src="static/img/github_menu.png" alt="GitHub"></a>
-     <a target="_blank" href="https://www.linkedin.com/in/francisco-antu-almonacid-cammarata-543119267/" title="Follow on Linkedin"><img src="static/img/linkedin_menu.png" alt="LinkedIn"></a>
-    </div>
-    
-    <nav>
-      <ul id="nav-menu" class="flex justify-end items-center list-reset m-0">
-       <li><a href="/" class="active">About</a></li>
-       <li><a href="/experience">Portfolio</a></li>
-       <li><a href="/education">Education</a></li>
-       <li><a href="/contact">Contact</a></li>
-      </ul>
-    </nav>
-   <label class="toggle-switch">
-     <input type="checkbox" onclick="switchTheme()">
-     <span class="slider"></span>
-   </label>
+{% extends "base2.html" %}
 
-   <div class="burger" onclick="toggleMenu()">
-    <div class="burger-i st-1"></div>
-    <div class="burger-i st-2"></div>
-    <div class="burger-i st-3"></div>
-  </div>
-   
- 
-</header>
-  <section class="experience-container container">
-    <div class="content-text">
-      <h2>My Expertise</h2>
-      <div class="container">
-       <div class="desktop-experience">
-        <div class="ohio-accordion-sс accordion">
-          {% for experience in experiences %}
-          <div class="accordionItem elementor-repeater-item-{{ loop.index }}">
-            <div class="accordionItem_title">
-              <i class="icon hm hm-code-page"></i>
-              <h6>
-                <div>
-                  <span class="position">{{ experience.title }}</span>
-                  <span class="time">{{ experience.date }}</span>
-                </div>
-              </h6>
-              <div class="accordionItem_control btn-round btn-round-small btn-round-light">
-                <i class="ion ion-chevron-down ion-md-add"></i>
-              </div>
-            </div>
-            <div class="accordionItem_content">
-              <div class="experience-card">
-                <p><strong>Company:</strong> {{ experience.company }}</p>
-                <p><strong>Description:</strong> {{ experience.description }}</p>
-                <p><strong>Skills:</strong></p>
-                <ul>
-                  {% for skill in experience.skills %}
-                  <li>{{ skill }}</li>
-                  {% endfor %}
-                </ul>
-              </div>
-              {% if experience.image_path %}
-              <div class="experience-image">
-                <img src="{{ url_for('static', filename=experience.image_path) }}" alt="{{ experience.title }} image">
-              </div>
-              {% endif %}
-              {% if experience.gif1_path %}
-              <div class="experience-media">
-                <img src="{{ url_for('static', filename=experience.gif1_path) }}" alt="GIF 1">
-              </div>
-              {% endif %}
-              {% if experience.gif2_path %}
-              <div class="experience-media">
-                <img src="{{ url_for('static', filename=experience.gif2_path) }}" alt="GIF 2">
-              </div>
-              {% endif %}
-            </div>
-          </div>
-          {% endfor %}
-        </div>
-      </div> 
-        <!-- Estructura para dispositivos móviles -->
-      <div class="mobile-experience">
-        <div class="experience-list">
-          {% for experience in experiences %}
-          <div class="experience-item">
-            <h3>{{ experience.title }}</h3>
-            <p class="time">{{ experience.date }}</p>
-            <div class="description">{{ experience.description }}</div>
-            <!-- Sección para archivos multimedia  -->
-            {% if experience.image_path %}
-              <div class="experience-image">
-                <img src="{{ url_for('static', filename=experience.image_path) }}" alt="{{ experience.title }} image">
-              </div>
-              {% endif %}
-              {% if experience.gif1_path %}
-              <div class="experience-media">
-                <img src="{{ url_for('static', filename=experience.gif1_path) }}" alt="GIF 1">
-              </div>
-              {% endif %}
-              {% if experience.gif2_path %}
-              <div class="experience-media">
-                <img src="{{ url_for('static', filename=experience.gif2_path) }}" alt="GIF 2">
-              </div>
-              {% endif %}
-          </div>
-          {% endfor %}
-         </div>
-       </div>
-      </div>
-    </div>
-  </section> 
-</body>
-</html>
+{% block content %}
+<main id="">
+     <div class="linea-recta"></div>
+                 <section class="project-container">
+                    {% for experience in experiences %}
+                        <div class="project-card">
+                            <a href="/project/{{ experience.id }}"> <!-- Enlace al detalle del proyecto -->
+                                <img src="/static/{{ experience.image1_path }}" alt="{{ experience.title }}">
+                                <h2>{{ experience.title }}</h2>
+                                <p>{{ experience.description }}</p>
+                            </a>
+                        </div>
+                    {% endfor %}
+                </section>
+
+                 <div  class="linea-recta"></div>
+</main>
+{% endblock %}
+

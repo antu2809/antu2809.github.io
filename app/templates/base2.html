@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.slick/1.8.1/slick.min.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-KZIz1fPu9AdC4ffErH0uTuEt+YiL34aJMe61Bu1QmRcS5lCz+G0JS5XxH6jHlw51DRmLdDBhPzJ4SdzeXlBYxA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body data-theme="light">
+
+<header>
+    <!-- Navbar -->
+    <nav class="Header __ HeaderWrapper-sc-1k8hcxd-0 hOqTid">
+        <div class="Header_HeaderMenuMask-sc-1k8hcxd-1 grDjYN"></div>
+        <div class="Header_HeaderScrolledMask-sc-1k8hcxd-2 dAixcR"></div>
+        <section class="Container_ContainerWrapper-sc-2i4k0t-0 kPQvdk">
+            <!-- PC Navigation Menu -->
+            <div class="nav-d">
+                <div class="ribbon">
+                        <a target="_blank" href="https://github.com/antu2809" title="Follow on GitHub">
+                            <img src="{{ url_for('static', filename='img/github_menu.png') }}" alt="GitHub">
+                        </a>
+                        <a target="_blank" href="https://www.linkedin.com/in/francisco-almonacid-cammarata-543119267/" title="Follow on Linkedin">
+                            <img src="{{ url_for('static', filename='img/linkedin_menu.png') }}" alt="LinkedIn">
+                        </a>
+                    </div>
+                <a href="/">Home</a>
+                <a href="https://franciscoantualmonacid.pythonanywhere.com/experience">Experiencia</a>
+                <a href="https://franciscoantualmonacid.pythonanywhere.com/education">Educación</a>
+                <a href="https://franciscoantualmonacid.pythonanywhere.com/contact">Contacto</a>
+                <label class="toggle-switch">
+                    <input type="checkbox" onclick="switchTheme()">
+                    <span class="slider"></span>
+                </label>
+                </div>
+            <!-- Mobile Navigation Menu -->
+            <div id="menu-container" class="nav-m">
+                <button aria-label="Toggle Menu" class="button-menu" id="menu-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-menu-2">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M4 6l16 0" />
+                        <path d="M4 12l16 0" />
+                        <path d="M4 18l16 0" />
+                    </svg>
+                </button>
+                <div class="nav-mm">
+                    <a href="/">Home</a>
+                    <a href="https://franciscoantualmonacid.pythonanywhere.com/experience">Experiencia</a>
+                    <a href="https://franciscoantualmonacid.pythonanywhere.com/education">Educación</a>
+                    <a href="https://franciscoantualmonacid.pythonanywhere.com/contact">Contacto</a>
+                    <!-- Elementos adicionales -->
+                    <div class="ribbon">
+                        <a target="_blank" href="https://github.com/antu2809" title="Follow on GitHub">
+                            <img src="{{ url_for('static', filename='img/github_menu.png') }}" alt="GitHub">
+                        </a>
+                        <a target="_blank" href="https://www.linkedin.com/in/francisco-almonacid-cammarata-543119267/" title="Follow on Linkedin">
+                            <img src="{{ url_for('static', filename='img/linkedin_menu.png') }}" alt="LinkedIn">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </nav>
+</header>
+
+<!-- Aquí va el contenido específico de cada página -->
+{% block content %}{% endblock %}
+
+</body>
+</html>

@@ -1,75 +1,30 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>contact</title>
-    <style>
-        h1 {
-            margin-top: 220px;
-        }
-    </style>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/jquery.slick/1.8.1/slick.min.js"></script>
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-KZIz1fPu9AdC4ffErH0uTuEt+YiL34aJMe61Bu1QmRcS5lCz+G0JS5XxH6jHlw51DRmLdDBhPzJ4SdzeXlBYxA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-<body class="data-theme" data-theme="light">
-    <header id="page-header" class="theme-change"> 
-        <div class="ribbon">
-         <a target="_blank" href="https://github.com/antu2809" title="Follow on GitHub"><img src="static/img/github_menu.png" alt="GitHub"></a>
-         <a target="_blank" href="https://www.linkedin.com/in/francisco-antu-almonacid-cammarata-543119267/" title="Follow on Linkedin"><img src="static/img/linkedin_menu.png" alt="LinkedIn"></a>
-        </div>
-        
-        <nav>
-          <ul id="nav-menu" class="flex justify-end items-center list-reset m-0">
-           <li><a href="/" class="active">About</a></li>
-           <li><a href="/experience">Portfolio</a></li>
-           <li><a href="/education">Education</a></li>
-           <li><a href="/contact">Contact</a></li>
-          </ul>
-        </nav>
-       <label class="toggle-switch">
-         <input type="checkbox" onclick="switchTheme()">
-         <span class="slider"></span>
-       </label>
-  
-       <div class="burger" onclick="toggleMenu()">
-        <div class="burger-i st-1"></div>
-        <div class="burger-i st-2"></div>
-        <div class="burger-i st-3"></div>
-      </div>
-       
-     
-    </header>
-    <h1>Contact</h1>
-                                <form method="POST" action="/">
-                                    {{ form.csrf_token }}
-                                    <div>
-                                        {{ form.name.label }} {{ form.name(size=20) }}
-                                        {% for error in form.name.errors %}
-                                            <span style="color: red;">{{ error }}</span>
-                                        {% endfor %}
-                                    </div>
-                                    <div>
-                                        {{ form.email.label }} {{ form.email(size=30) }}
-                                        {% for error in form.email.errors %}
-                                            <span style="color: red;">{{ error }}</span>
-                                        {% endfor %}
-                                    </div>
-                                    <div>
-                                        {{ form.message.label }} {{ form.message(rows=4, cols=30) }}
-                                        {% for error in form.message.errors %}
-                                            <span style="color: red;">{{ error }}</span>
-                                        {% endfor %}
-                                    </div>
-                                    <div>
-                                        {{ form.submit }}
-                                    </div>
-                                </form>
-                            </div>
-                        </section>   
-                      </body>
-                      </html>
+{% extends "base2.html" %}
+
+{% block content %}
+     <main id="">
+           <div class="contact-container">
+            <div class="contact-info">
+              <h2>Get in touch</h2>
+            </div>
+            <div class="contact-form">
+              <form action="https://formsubmit.co/antu.almonacid@alu.ing.unlp.edu.ar" method="POST">
+                <div class="form-group">
+                  <label for="name">Name:</label>
+                  <input type="text" name="name" id="name" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email:</label>
+                  <input type="email" name="email" id="email" required>
+                </div>
+                <div class="form-group">
+                  <label for="message">Message:</label>
+                  <input type="text" name="message" id="message" required>
+                </div>
+                <div class="form-group">
+                  <button type="submit">submit</button>
+                </div>
+              </form>
+            </div>
+          </div>
+    </main>
+{% endblock %}
