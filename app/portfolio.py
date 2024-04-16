@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 from flask import Flask, render_template, redirect, url_for, send_from_directory
+=======
+from flask import Flask, render_template, redirect, url_for, request
+>>>>>>> e9c6921951e5247ee0b542101c5624dcad96f945
 from flask_wtf import FlaskForm
 from wtforms import StringField, TextAreaField, SubmitField
 from wtforms.validators import DataRequired, Email
@@ -69,7 +73,11 @@ def index():
     form = ContactForm()
 
     if form.validate_on_submit():
+<<<<<<< HEAD
         msg = Message('Nuevo mensaje de contacto', sender=form.email.data, recipients=['antu.almonacid@alu.ing.unlp.edu.ar'])
+=======
+        msg = Message('Nuevo mensaje de contacto', sender=form.email.data, recipients=['antualmonacid@gmail.com'])
+>>>>>>> e9c6921951e5247ee0b542101c5624dcad96f945
         msg.body = f"Nombre: {form.name.data}\nEmail: {form.email.data}\nMensaje: {form.message.data}"
         mail.send(msg)
         return redirect(url_for('index'))
@@ -198,7 +206,11 @@ def contact():
         # Envío de correo electrónico
         msg = Message('Nuevo mensaje de contacto',  # Asunto del correo
                       sender=form.email.data, # Correo elecctronico del remitente
+<<<<<<< HEAD
                       recipients=['antu.almonacid@alu.ing.unlp.edu.ar'])  # Tu dirección de correo destinatario
+=======
+                      recipients=['antualmonacid@gmail.com'])  # Tu dirección de correo destinatario
+>>>>>>> e9c6921951e5247ee0b542101c5624dcad96f945
         msg.body = f"Nombre: {form.name.data}\nEmail: {form.email.data}\nMensaje: {form.message.data}"
         mail.send(msg)
 
